@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Contact Us | KimhutCafé</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: #f6f7fb;
+            margin: 0;
+        }
+
+        header {
+            background: #43b972;
+            color: #fff;
+            padding: 28px 0 16px 0;
+            text-align: center;
+        }
+
+        .logo {
+            height: 60px;
+            border-radius: 14px;
+            margin-bottom: 10px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 18px;
+            justify-content: center;
+            padding: 0;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+            padding: 7px 18px;
+            border-radius: 6px;
+            transition: background 0.2s;
+        }
+
+        nav ul li a.active,
+        nav ul li a:hover {
+            background: #fff;
+            color: #43b972;
+        }
+
+        main {
+            max-width: 650px;
+            margin: 45px auto 0 auto;
+            background: #fff;
+            border-radius: 18px;
+            box-shadow: 0 2px 12px #0001;
+            padding: 40px 28px 32px 28px;
+        }
+
+        h2 {
+            color: #43b972;
+            margin-top: 0;
+        }
+
+        .contact-info {
+            margin-bottom: 28px;
+        }
+
+        .contact-info a {
+            color: #43b972;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        form.contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 17px;
+        }
+
+        form.contact-form input,
+        form.contact-form textarea {
+            padding: 11px;
+            font-size: 16px;
+            border-radius: 6px;
+            border: 1px solid #bbb;
+        }
+
+        form.contact-form textarea {
+            min-height: 80px;
+            resize: vertical;
+        }
+
+        .send-btn {
+            background: #43b972;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            padding: 12px 0;
+            font-size: 17px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .send-btn:hover {
+            background: #38985e;
+        }
+
+        .thankyou-message {
+            color: #43b972;
+            font-size: 17px;
+            margin-top: 18px;
+            display: none;
+        }
+
+        @media (max-width:600px) {
+            main {
+                padding: 15px;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 9px;
+            }
+        }
+    </style> -->
+</head>
+
+<body>
+    <header>
+        <img src="image/B1.jpeg" alt="KimhutCafé Logo" class="logo">
+        <h1>KimhutCafé</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="Menu.html">Menu</a></li>
+                <li><a href="aboutus.html">About Us</a></li>
+                <li><a href="contactus.html" class="active">Contact Us</a></li>
+                <li><a href="order-history.html">Order History</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section class="contact-social-section">
+        <div class="social-icons">
+            <a href="https://web.facebook.com/people/%E1%9E%82%E1%9E%B9%E1%9E%98%E1%9E%A0%E1%9F%8A%E1%9E%BB%E1%9E%8F-%E1%9E%80%E1%9E%B6%E1%9E%A0%E1%9F%92%E1%9E%9C%E1%9F%81Kimhut-Coffee/100068016318775/"
+                target="_blank" aria-label="Facebook">
+                <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg" alt="Facebook" />
+            </a>
+            <a href="https://t.me" target="_blank" aria-label="Telegram">
+                <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/telegram.svg" alt="Telegram" />
+            </a>
+            <a href="https://maps.app.goo.gl/BHhLBougnc5rbpeT9" target="_blank" aria-label="Google Map">
+                <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/googlemaps.svg"
+                    alt="Google Map" />
+            </a>
+        </div>
+    </section>
+    <main>
+        <h2>Contact Us</h2>
+        <div class="contact-info">
+            <p>
+                <b>Address:</b> Street 123, Phnom Penh, Cambodia<br>
+                <b>Phone:</b> <a href="tel:+85512345678">+855 12 345 678</a><br>
+                <b>Email:</b> <a href="mailto:info@kimhutcafe.com">info@kimhutcafe.com</a><br>
+                <b>Facebook:</b> <a
+                    href="https://web.facebook.com/people/%E1%9E%82%E1%9E%B9%E1%9E%98%E1%9E%A0%E1%9F%8A%E1%9E%BB%E1%9E%8F-%E1%9E%80%E1%9E%B6%E1%9E%A0%E1%9F%92%E1%9E%9C%E1%9F%81Kimhut-Coffee/100068016318775/"
+                    target="_blank">KimhutCafé Facebook</a>
+            </p>
+        </div>
+        <form class="contact-form" id="contactForm" autocomplete="off" onsubmit="return sendMessage(event)">
+            <input type="text" id="name" placeholder="Your Name" required>
+            <input type="email" id="email" placeholder="Your Email" required>
+            <textarea id="message" placeholder="Your Message" required></textarea>
+            <button type="submit" class="send-btn">Send Message</button>
+        </form>
+        <div id="thankYou" class="thankyou-message"></div>
+    </main>
+    <script>
+        function sendMessage(event) {
+            event.preventDefault();
+            // You would normally send the data to your server here
+            document.getElementById('thankYou').style.display = 'block';
+            document.getElementById('thankYou').textContent =
+                "Thank you for contacting us! We have received your message and will reply soon.";
+            document.getElementById('contactForm').reset();
+            setTimeout(() => {
+                document.getElementById('thankYou').style.display = 'none';
+            }, 4000);
+            return false;
+        }
+    </script>
+</body>
+
+</html>

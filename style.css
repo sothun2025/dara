@@ -1,0 +1,580 @@
+body {
+    margin: 0;
+    font-family: Arial Rounded MT Bold, Arial, sans-serif;
+    background: #fff;
+}
+
+header {
+    background: #6c5656;
+    text-align: center;
+    padding-bottom: 0.5rem;
+}
+
+.header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 40px 0 40px;
+}
+
+.logo {
+    height: 90px;
+    border-radius: 50%;
+    margin: 0;
+}
+
+/* SOCIAL ICONS: Show on all devices, easy to tap on mobile */
+.social-icons {
+    position: absolute;
+    top: 14px;
+    right: 12px;
+    display: flex;
+    gap: 12px;
+    z-index: 10;
+}
+
+.social-icons a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.13);
+    transition: background 0.15s, transform 0.18s;
+
+}
+
+.social-icons a:hover {
+    background: #ffe3c2;
+    transform: scale(1.1) rotate(-5deg);
+}
+
+.social-icons img:hover {
+    background: #ffe3c2;
+    transform: scale(1.1) rotate(-5deg);
+    width: 35px;
+    height: 35px;
+    object-fit: contain;
+    border-radius: 50%;
+    background: transparent;
+    filter: drop-shadow(0 2px 5px #00000018);
+}
+
+.social-icons img {
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+    border-radius: 50%;
+    background: transparent;
+    filter: drop-shadow(0 2px 5px #00000018);
+}
+
+.social-icons a[aria-label='Facebook'] img {
+    background: #fff;
+    padding: 4px;
+}
+
+.social-icons a[aria-label='Telegram'] img {
+    background: #25A4E2;
+    padding: 3px;
+}
+
+.social-icons a[aria-label='Google Map'] img {
+    background: #fff;
+    padding: 3px;
+    border-radius: 50%;
+}
+
+.social-icons a[aria-label='Order Cart'] img {
+    background: #fff9ef;
+    padding: 4px;
+}
+
+.cart-count {
+    position: absolute;
+    top: -7px;
+    right: -7px;
+    background: red;
+    color: #fff;
+    font-size: 0.95rem;
+    border-radius: 50%;
+    width: 21px;
+    height: 21px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    border: 2px solid #fff;
+}
+
+h1 {
+    color: #f7c873;
+    font-size: 2.8rem;
+    font-family: 'Comic Sans MS', cursive;
+    margin-top: 0;
+    margin-bottom: 12px;
+    letter-spacing: 2px;
+}
+
+nav {
+    background: orange;
+    margin-top: 20px;
+}
+
+nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+}
+
+nav li {
+    margin: 0 28px;
+}
+
+nav a {
+    display: inline-block;
+    padding: 18px 0;
+    color: #222;
+    font-size: 1.6rem;
+    text-decoration: none;
+    font-weight: 500;
+    position: relative;
+}
+
+nav a.active,
+nav a:hover {
+    border-bottom: 3px solid #222;
+}
+
+main {
+    max-width: 1100px;
+    margin: 36px auto;
+    padding: 0 24px;
+}
+
+.menu-section h2 {
+    display: flex;
+    flex-direction: column;
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 24px;
+}
+
+.menu-items {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+}
+
+.menu-card {
+    background: #fffbe8;
+    border-radius: 28px;
+    box-shadow: 0 6px 32px #c3c3c3a6;
+    padding: 30px 30px 24px 30px;
+    text-align: center;
+    width: 280px;
+    transition: transform .2s;
+}
+
+.menu-card:hover {
+    transform: translateY(-7px) scale(1.03);
+    box-shadow: 0 12px 32px #bbb9b9a6;
+}
+
+.menu-card img {
+    width: 170px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 18px;
+    margin-bottom: 18px;
+    background: #fff;
+    border: 1px solid #eee;
+}
+
+.menu-card h3 {
+    font-size: 1.45rem;
+    margin: 7px 0 8px 0;
+    font-weight: bold;
+}
+
+.price {
+    color: orange;
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.quantity {
+    margin-bottom: 14px;
+    font-size: 1.1rem;
+}
+
+.menu-card input[type="number"] {
+    width: 38px;
+    padding: 3px 6px;
+    margin-left: 7px;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: 1px solid #bbb;
+}
+
+.menu-card button {
+    width: 90%;
+    background: #00e9ff;
+    color: #111;
+    font-size: 1.04rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 12px;
+    padding: 11px 0;
+    margin-top: 5px;
+    cursor: pointer;
+    transition: background .2s;
+}
+
+.menu-card button:hover {
+    background: #04bad2;
+}
+
+/* Cart Modal Styling */
+.cart-modal {
+    display: none;
+    position: fixed;
+    z-index: 99;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.38);
+    align-items: center;
+    justify-content: center;
+}
+
+.cart-modal-content {
+    background: #fffbe8;
+    margin: 7% auto;
+    padding: 28px 35px 18px 35px;
+    border-radius: 24px;
+    width: 340px;
+    box-shadow: 0 8px 32px #bbb9b9a6;
+    position: relative;
+    text-align: center;
+}
+
+.cart-modal-content h2 {
+    margin-top: 0;
+}
+
+.close {
+    position: absolute;
+    right: 24px;
+    top: 19px;
+    font-size: 2rem;
+    color: #c00;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.checkout-btn {
+    background: #00e9ff;
+    color: #222;
+    border: none;
+    border-radius: 12px;
+    padding: 10px 30px;
+    font-size: 1.1rem;
+    margin-top: 14px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.checkout-form {
+    margin-top: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.checkout-form input {
+    padding: 8px 10px;
+    font-size: 1rem;
+    border-radius: 8px;
+    border: 1px solid #bbb;
+}
+
+.thankyou-message {
+    color: #27ae60;
+    font-size: 1.25rem;
+    margin-top: 18px;
+    font-weight: bold;
+}
+
+/* Contact Us */
+h2 {
+    color: #43b972;
+    margin-top: 0;
+}
+
+.contact-info {
+    margin-bottom: 28px;
+}
+
+.contact-info a {
+    color: #43b972;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+form.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 17px;
+}
+
+form.contact-form input,
+form.contact-form textarea {
+    padding: 11px;
+    font-size: 16px;
+    border-radius: 6px;
+    border: 1px solid #bbb;
+}
+
+form.contact-form textarea {
+    min-height: 80px;
+    resize: vertical;
+}
+
+.send-btn {
+    background: #43b972;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 12px 0;
+    font-size: 17px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.send-btn:hover {
+    background: #38985e;
+}
+
+.thankyou-message {
+    color: #43b972;
+    font-size: 17px;
+    margin-top: 18px;
+    display: none;
+}
+
+/* @media (max-width:600px) {
+            main {
+                padding: 15px;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 9px;
+            }
+        }   */
+/* Contact Us */
+/* .orders-table */
+main {
+    max-width: 800px;
+    margin: 45px auto 0 auto;
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 0 2px 12px #0001;
+    padding: 40px 28px;
+    min-height: 60vh;
+}
+
+h2 {
+    color: #43b972;
+    margin-top: 0;
+}
+
+.orders-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 18px;
+}
+
+.orders-table th,
+.orders-table td {
+    border: 1px solid #e0e0e0;
+    padding: 13px 10px;
+    text-align: left;
+}
+
+.orders-table th {
+    background: #43b972;
+    color: #fff;
+}
+
+.orders-table tr:nth-child(even) {
+    background: #f6f7fb;
+}
+
+.empty-message {
+    text-align: center;
+    color: #888;
+    margin-top: 40px;
+}
+
+@media (max-width:600px) {
+    main {
+        padding: 10px;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 9px;
+    }
+
+    .orders-table th,
+    .orders-table td {
+        font-size: 13px;
+        padding: 9px 4px;
+    }
+}
+
+/* .orders-table */
+footer {
+    text-align: center;
+    background: #222;
+    color: #ddd;
+    padding: 14px 0;
+    margin-top: 40px;
+    font-size: 0.95rem;
+}
+
+/* index */
+.carousel-container {
+    position: relative;
+    max-width: 640px;
+    margin: 32px auto 28px auto;
+    border-radius: 18px;
+    box-shadow: 0 4px 20px #0002;
+    overflow: hidden;
+    background: #fff;
+}
+
+.carousel-slide {
+    display: none;
+    position: relative;
+    text-align: center;
+}
+
+.carousel-slide.active {
+    display: block;
+    animation: fadein 0.7s;
+}
+
+.carousel-slide img {
+    /* width: 100%;
+    max-height: 320px;
+    object-fit: contain;
+    display: block; */
+
+    width: 170px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 18px;
+    margin-bottom: 18px;
+    background: #00ff59;
+    border: 1px solid #0091ff;
+}
+
+.carousel-caption {
+    background: rgba(33, 48, 50, 0.47);
+    color: #fff;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 14px 0;
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+}
+
+.carousel-prev,
+.carousel-next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: 48px;
+    height: 48px;
+    margin-top: -24px;
+    color: #fff;
+    font-size: 2.5rem;
+    font-weight: bold;
+    border-radius: 50%;
+    background: rgba(60, 60, 60, 0.2);
+    user-select: none;
+    transition: background 0.18s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 3;
+}
+
+.carousel-prev:hover,
+.carousel-next:hover {
+    background: rgba(70, 180, 112, 0.85);
+}
+
+.carousel-prev {
+    left: 12px;
+}
+
+.carousel-next {
+    right: 12px;
+}
+
+.carousel-dots {
+    text-align: center;
+    margin: 10px 0;
+}
+
+.carousel-dots .dot {
+    cursor: pointer;
+    height: 12px;
+    width: 12px;
+    margin: 0 4px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background 0.3s;
+    border: 1.5px solid #43b972;
+}
+
+.carousel-dots .dot.active,
+.carousel-dots .dot:hover {
+    background-color: #43b972;
+    border-color: #2e8559;
+}
+
+@keyframes fadein {
+    from {
+        opacity: 0;
+        transform: scale(0.98);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Responsive */
+@media (max-width: 700px) {
+    .carousel-container {
+        max-width: 99vw;
+    }
+
+    .carousel-slide img {
+        max-height: 180px;
+    }
+}

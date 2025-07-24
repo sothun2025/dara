@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>KimhutCafé</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <img src="image/B1.jpeg" alt="KimhutCafé Logo" class="logo">
+        <h1>KimhutCafé</h1>
+        <nav>
+            <ul>
+                <!-- <li><a href="#" onclick="showPage('menu', this)">Menu</a></li> -->
+                <li><a href="index.html"> Home</a></li>
+                <li><a href="Menu.html" class="active">Menu</a></li>
+                <li><a href="aboutus.html">About Us</a></li>
+                <li><a href="contactus.html">Contact Us</a></li>
+                <li><a href="order-history.html">Order History</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section class="contact-social-section">
+        <div class="social-icons">
+            <a href="https://web.facebook.com/people/%E1%9E%82%E1%9E%B9%E1%9E%98%E1%9E%A0%E1%9F%8A%E1%9E%BB%E1%9E%8F-%E1%9E%80%E1%9E%B6%E1%9E%A0%E1%9F%92%E1%9E%9C%E1%9F%81Kimhut-Coffee/100068016318775/"
+                target="_blank" aria-label="Facebook">
+                <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg" alt="Facebook" />
+            </a>
+            <a href="https://t.me" target="_blank" aria-label="Telegram">
+                <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/telegram.svg" alt="Telegram" />
+            </a>
+            <a href="https://maps.app.goo.gl/BHhLBougnc5rbpeT9" target="_blank" aria-label="Google Map">
+                <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/googlemaps.svg"
+                    alt="Google Map" />
+            </a>
+        </div>
+    </section>
+    <main>
+        <section class="menu-section">
+            <h2>View Menu</h2>
+            <div class="menu-items " style="display: flex; flex-wrap: wrap; gap: 36px; justify-content: center;">
+                <div class="menu-card">
+                    <img src="image/Green-tea.jpg" alt="Green-tea">
+                    <h3>Green Tea</h3>
+                    <div class="price">3500៛</div>
+                    <div class="price">0.88$</div>
+                    <div class="quantity">
+                        Quantity: <input type="number" value="0" min="0" id="qty-Green-tea">
+                    </div>
+                    <button onclick="addToCart('Green-tea', 'qty-Green-tea')">Add to Cart</button>
+                </div>
+                <div class="menu-card">
+                    <img src="image/Avocado.jpg" alt="Avocado">
+                    <h3>Avocado</h3>
+                    <div class="price">3500៛</div>
+                    <div class="price">0.88$</div>
+                    <div class="quantity">
+                        Quantity: <input type="number" value="0" min="0" id="qty-Avocado">
+                    </div>
+                    <button onclick="addToCart('Avocado', 'qty-Avocado')">Add to Cart</button>
+                </div>
+                <div class="menu-card">
+                    <img src="image/Chocolate.jpg" alt="Chocolate">
+                    <h3>Chocolate</h3>
+                    <div class="price">3500៛</div>
+                    <div class="price">0.88$</div>
+                    <div class="quantity">
+                        Quantity: <input type="number" value="0" min="0" id="qty-Chocolate">
+                    </div>
+                    <button onclick="addToCart('Chocolate', 'qty-Chocolate')">Add to Cart</button>
+                </div>
+                <div class="menu-card">
+                    <img src="image/passion-mill.jpg" alt="passion-mill">
+                    <h3>Passion Mill</h3>
+                    <div class="price">3500៛</div>
+                    <div class="price">0.88$</div>
+                    <div class="quantity">
+                        Quantity: <input type="number" value="0" min="0" id="qty-passion-mill">
+                    </div>
+                    <button onclick="addToCart('passion-mill', 'qty-passion-mill')">Add to Cart</button>
+                </div>
+                <div class="menu-card">
+                    <img src="image/passion.jpg" alt="passion">
+                    <h3>Passion</h3>
+                    <div class="price">3500៛</div>
+                    <div class="price">0.88$</div>
+                    <div class="quantity">
+                        Quantity: <input type="number" value="0" min="0" id="qty-passion">
+                    </div>
+                    <button onclick="addToCart('passion', 'qty-passion')">Add to Cart</button>
+                </div>
+                <div class="menu-card">
+                    <img src="image/Storbery.jpg" alt="Storbery">
+                    <h3>Blue Storbery</h3>
+                    <div class="price">3500៛</div>
+                    <div class="price">0.88$</div>
+                    <div class="quantity">
+                        Quantity: <input type="number" value="0" min="0" id="qty-Storbery">
+                    </div>
+                    <button onclick="addToCart('Storbery', 'qty-Storbery')">Add to Cart</button>
+                </div>
+                <div class="menu-card">
+                    <img src="image/Storbery1.jpg" alt="Storbery1">
+                    <h3>Storbery</h3>
+                    <div class="price">3500៛</div>
+                    <div class="price">0.88$</div>
+                    <div class="quantity">
+                        Quantity: <input type="number" value="0" min="0" id="qty-Storbery1">
+                    </div>
+                    <button onclick="addToCart('Storbery1', 'qty-Storbery1')">Add to Cart</button>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- Cart Modal -->
+    <div id="cart-modal" class="cart-modal">
+        <div class="cart-modal-content">
+            <span class="close" id="close-cart">&times;</span>
+            <h2>Your Cart</h2>
+            <div id="cart-items"></div>
+            <button class="checkout-btn" id="checkout-btn">Checkout</button>
+            <form id="checkout-form" class="checkout-form" style="display:none;" onsubmit="submitCheckout(event)">
+                <input type="text" id="customer-name" placeholder="Your Name" required>
+                <input type="tel" id="customer-phone" placeholder="Phone Number" required>
+                <input type="text" id="customer-address" placeholder="Address" required>
+                <button type="submit" class="checkout-btn">Submit Order</button>
+            </form>
+            <div id="thankyou-message" class="thankyou-message" style="display:none;"></div>
+        </div>
+    </div>
+    <button id="cart-icon"
+        style="position:fixed;right:22px;bottom:22px;z-index:100;background:#43b972;color:#fff;border:none;border-radius:50%;width:60px;height:60px;font-size:32px;cursor:pointer;">🛒</button>
+    <span id="cart-count"
+        style="position:fixed;right:18px;bottom:18px;background:red;color:#fff;border-radius:50%;width:26px;height:26px;display:inline-block;text-align:center;line-height:26px;font-weight:bold;z-index:101;">0</span>
+    <script>
+        let carts = {};
+        function addToCart(item, qtyId) {
+            var qty = parseInt(document.getElementById(qtyId).value);
+            if (qty > 0) {
+                if (cart[item]) cart[item] += qty;
+                else cart[item] = qty;
+                updateCartCount();
+                document.getElementById(qtyId).value = 0;
+                alert(qty + " x " + item + " added to cart!");
+            } else {
+                alert("Please select quantity!");
+            }
+        }
+        function updateCartCount() {
+            let count = Object.values(cart).reduce((a, b) => a + b, 0);
+            document.getElementById('cart-count').innerText = count;
+        }
+        document.getElementById('cart-icon').onclick = function () {
+            displayCart();
+            document.getElementById('cart-modal').style.display = 'flex';
+            document.getElementById("checkout-form").style.display = "none";
+            document.getElementById("thankyou-message").style.display = "none";
+            document.getElementById("checkout-btn").style.display = "inline-block";
+        };
+        document.getElementById('close-cart').onclick = function () {
+            document.getElementById('cart-modal').style.display = 'none';
+        };
+        window.onclick = function (event) {
+            var modal = document.getElementById('cart-modal');
+            if (event.target == modal) modal.style.display = "none";
+        };
+        function displayCart() {
+            var cartItems = document.getElementById('cart-items');
+            cartItems.innerHTML = '';
+            if (Object.keys(cart).length === 0) {
+                cartItems.innerHTML = '<p>Your cart is empty.</p>';
+            } else {
+                let html = '<ul style="text-align:left;">';
+                for (let item in cart) {
+                    html += `<li style="margin-bottom:7px;">
+                        ${item} <b>x${cart[item]}</b>
+                        <button onclick="removeFromCart('${item}')" style="margin-left:12px; background:#f55;color:#fff;border:none;border-radius:6px;cursor:pointer;">Remove</button>
+                    </li>`;
+                }
+                html += '</ul>';
+                cartItems.innerHTML = html;
+            }
+        }
+        function removeFromCart(item) {
+            delete cart[item];
+            updateCartCount();
+            displayCart();
+        }
+        document.getElementById("checkout-btn").onclick = function () {
+            if (Object.keys(cart).length === 0) {
+                alert("Your cart is empty!");
+                return;
+            }
+            document.getElementById("checkout-form").style.display = "flex";
+            document.getElementById("checkout-btn").style.display = "none";
+            document.getElementById("thankyou-message").style.display = "none";
+        };
+
+        function submitCheckout(event) {
+            event.preventDefault();
+            // Get form values
+            let name = document.getElementById("customer-name").value;
+            let phone = document.getElementById("customer-phone").value;
+            let address = document.getElementById("customer-address").value;
+
+            // Build the order details as a string (for display in Order History)
+            let orderItems = Object.entries(cart).map(([item, qty]) => `${item} x${qty}`).join(", ");
+
+            // Prepare the order object
+            let order = {
+                date: new Date().toISOString().slice(0, 10), // YYYY-MM-DD
+                number: 'KHC-' + Math.floor(Math.random() * 9000 + 1000), // Random 4-digit
+                items: orderItems,
+                total: (Object.values(cart).reduce((a, b) => a + b, 0) * 3500) + "៛", // Simple pricing
+                status: "Completed"
+            };
+
+            // Load previous orders or initialize
+            let orders = JSON.parse(localStorage.getItem('kimhut_orders') || '[]');
+            orders.unshift(order); // Add new order to top
+            localStorage.setItem('kimhut_orders', JSON.stringify(orders));
+
+            // Show thank you
+            document.getElementById("thankyou-message").innerHTML =
+                `Thank you, <b>${name}</b>!<br>Your order has been received.`;
+            document.getElementById("thankyou-message").style.display = "block";
+            document.getElementById("checkout-form").reset();
+            document.getElementById("checkout-form").style.display = "none";
+
+            // Clear cart
+            cart = {};
+            updateCartCount();
+            setTimeout(() => {
+                document.getElementById("cart-modal").style.display = "none";
+                document.getElementById("thankyou-message").style.display = "none";
+                document.getElementById("checkout-btn").style.display = "inline-block";
+            }, 2500);
+        }
+    </script>
+
+
+    <!-- <script>
+        let cart = {};
+
+        function addToCart(item, qtyId) {
+            var qty = parseInt(document.getElementById(qtyId).value);
+            if (qty > 0) {
+                if (cart[item]) {
+                    cart[item] += qty;
+                } else {
+                    cart[item] = qty;
+                }
+                updateCartCount();
+                document.getElementById(qtyId).value = 0; // Reset input
+                alert(qty + " x " + item + " added to cart!");
+            } else {
+                alert("Please select quantity!");
+            }
+        }
+
+        function updateCartCount() {
+            let count = Object.values(cart).reduce((a, b) => a + b, 0);
+            document.getElementById('cart-count').innerText = count;
+        }
+
+        // Show/hide cart modal
+        document.getElementById('cart-icon').onclick = function () {
+            displayCart();
+            document.getElementById('cart-modal').style.display = 'flex';
+        };
+
+        document.getElementById('close-cart').onclick = function () {
+            document.getElementById('cart-modal').style.display = 'none';
+        };
+
+        window.onclick = function (event) {
+            var modal = document.getElementById('cart-modal');
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        };
+
+        // Display cart items
+        function displayCart() {
+            var cartItems = document.getElementById('cart-items');
+            cartItems.innerHTML = '';
+            if (Object.keys(cart).length === 0) {
+                cartItems.innerHTML = '<p>Your cart is empty.</p>';
+            } else {
+                let html = '<ul style="text-align:left;">';
+                for (let item in cart) {
+                    html += `<li style="margin-bottom:7px;">
+                        ${item} <b>x${cart[item]}</b>
+                        <button onclick="removeFromCart('${item}')" style="margin-left:12px; background:#f55;color:#fff;border:none;border-radius:6px;cursor:pointer;">Remove</button>
+                    </li>`;
+                }
+                html += '</ul>';
+                cartItems.innerHTML = html;
+            }
+        }
+
+        function removeFromCart(item) {
+            delete cart[item];
+            updateCartCount();
+            displayCart();
+        }
+
+        function checkoutCart() {
+            alert("Checkout feature not implemented!");
+        }
+
+        function showCheckoutForm() {
+            if (Object.keys(cart).length === 0) {
+                alert("Your cart is empty!");
+                return;
+            }
+            document.getElementById("checkout-form").style.display = "flex";
+            document.getElementById("checkout-btn").style.display = "none";
+            document.getElementById("thankyou-message").style.display = "none";
+        }
+
+        function submitCheckout(event) {
+            event.preventDefault();
+            // Get form values
+            let name = document.getElementById("customer-name").value;
+            let phone = document.getElementById("customer-phone").value;
+            let address = document.getElementById("customer-address").value;
+
+            // (Here you could send order to a server if needed)
+            document.getElementById("thankyou-message").innerHTML =
+                `Thank you, <b>${name}</b>!<br>Your order has been received.`;
+            document.getElementById("thankyou-message").style.display = "block";
+            document.getElementById("checkout-form").reset();
+            document.getElementById("checkout-form").style.display = "none";
+
+            // Clear cart
+            cart = {};
+            updateCartCount();
+            setTimeout(() => {
+                document.getElementById("cart-modal").style.display = "none";
+                document.getElementById("thankyou-message").style.display = "none";
+                document.getElementById("checkout-btn").style.display = "inline-block";
+            }, 2500);
+        }
+
+        document.getElementById('cart-icon').onclick = function () {
+            displayCart();
+            document.getElementById('cart-modal').style.display = 'flex';
+            // Reset form and messages on open
+            document.getElementById("checkout-form").style.display = "none";
+            document.getElementById("thankyou-message").style.display = "none";
+            document.getElementById("checkout-btn").style.display = "inline-block";
+        };
+
+        document.getElementById('close-cart').onclick = function () {
+            document.getElementById('cart-modal').style.display = 'none';
+        };
+
+        window.onclick = function (event) {
+            var modal = document.getElementById('cart-modal');
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        };
+
+
+    </script> -->
+    <script>
+        let cart = {};
+        function addToCart(item, qtyId) {
+            var qty = parseInt(document.getElementById(qtyId).value);
+            if (qty > 0) {
+                if (cart[item]) {
+                    cart[item] += qty;
+                } else {
+                    cart[item] = qty;
+                }
+                updateCartCount();
+                document.getElementById(qtyId).value = 0; // Reset input
+                alert(qty + " x " + item + " added to cart!");
+            } else {
+                alert("Please select quantity!");
+            }
+        }
+
+        function updateCartCount() {
+            let count = Object.values(cart).reduce((a, b) => a + b, 0);
+            document.getElementById('cart-count').innerText = count;
+        }
+
+        // Show/hide cart modal
+        document.getElementById('cart-icon').onclick = function () {
+            displayCart();
+            document.getElementById('cart-modal').style.display = 'flex';
+            // Reset form and messages on open
+            document.getElementById("checkout-form").style.display = "none";
+            document.getElementById("thankyou-message").style.display = "none";
+            document.getElementById("checkout-btn").style.display = "inline-block";
+        };
+
+        document.getElementById('close-cart').onclick = function () {
+            document.getElementById('cart-modal').style.display = 'none';
+        };
+
+        window.onclick = function (event) {
+            var modal = document.getElementById('cart-modal');
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        };
+
+        // Display cart items
+        function displayCart() {
+            var cartItems = document.getElementById('cart-items');
+            cartItems.innerHTML = '';
+            if (Object.keys(cart).length === 0) {
+                cartItems.innerHTML = '<p>Your cart is empty.</p>';
+            } else {
+                let html = '<ul style="text-align:left;">';
+                for (let item in cart) {
+                    html += `<li style="margin-bottom:7px;">
+                ${item} <b>x${cart[item]}</b>
+                <button onclick="removeFromCart('${item}')" style="margin-left:12px; background:#f55;color:#fff;border:none;border-radius:6px;cursor:pointer;">Remove</button>
+            </li>`;
+                }
+                html += '</ul>';
+                cartItems.innerHTML = html;
+            }
+        }
+
+        function removeFromCart(item) {
+            delete cart[item];
+            updateCartCount();
+            displayCart();
+        }
+
+        // ===== Checkout logic starts here =====
+
+        document.getElementById("checkout-btn").onclick = function () {
+            if (Object.keys(cart).length === 0) {
+                alert("Your cart is empty!");
+                return;
+            }
+            document.getElementById("checkout-form").style.display = "flex";
+            document.getElementById("checkout-btn").style.display = "none";
+            document.getElementById("thankyou-message").style.display = "none";
+        };
+
+        function submitCheckout(event) {
+            event.preventDefault();
+            // Get form values
+            let name = document.getElementById("customer-name").value;
+            let phone = document.getElementById("customer-phone").value;
+            let address = document.getElementById("customer-address").value;
+
+            // (Here you could send order to a server if needed)
+            document.getElementById("thankyou-message").innerHTML =
+                `Thank you, <b>${name}</b>!<br>Your order has been received.`;
+            document.getElementById("thankyou-message").style.display = "block";
+            document.getElementById("checkout-form").reset();
+            document.getElementById("checkout-form").style.display = "none";
+
+            // Clear cart
+            cart = {};
+            updateCartCount();
+            setTimeout(() => {
+                document.getElementById("cart-modal").style.display = "none";
+                document.getElementById("thankyou-message").style.display = "none";
+                document.getElementById("checkout-btn").style.display = "inline-block";
+            }, 2500);
+        }
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>KimhutCafé - Home</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header class="main-header">
+        <img src="image/B1.jpeg" alt="KimhutCafé Logo" class="logo">
+        <h1>KimhutCafé</h1>
+        <nav>
+            <ul>
+                <!-- <li><a href="#" class="active" onclick="showPage('home', this)">Home</a></li> -->
+                <li><a href="index.html" class="active" onclick="showPage('home', this)">home</a></li>
+                <li><a href="Menu.html" onclick="showPage('menu', this)">Menu</a></li>
+                <li><a href="aboutus.html" onclick="showPage('menu', this)">About Us</a></li>
+                <li><a href="contactus.html" onclick="showPage('menu', this)">Contact Us</a></li>
+                <li><a href="order-history.html" onclick="showPage('menu', this)">Order History</a></li>
+<!-- 
+                <li><a href="#" class="active" onclick="showPage('home', this)">Home</a></li>
+                <li><a href="#" onclick="showPage('menu', this)">Menu</a></li>
+                <li><a href="#" onclick="showPage('menu', this)">Menu</a></li>
+                <li><a href="#" onclick="showPage('about', this)">About Us</a></li>
+                <li><a href="#" onclick="showPage('contact', this)">Contact Us</a></li>
+                <li><a href="#" onclick="showPage('order', this)">Order History</a></li> -->
+            </ul>
+        </nav>
+    </header>
+    <!-- Carousel Section -->
+    <div class="carousel-container">
+        <div class="carousel-slide active">
+            <img src="image/B1.jpeg" alt="Welcome to KimhutCafé">
+            <div class="carousel-caption">Welcome to KimhutCafé</div>
+        </div>
+        <div class="carousel-slide">
+            <img src="image/Green-tea.jpg" alt="Green Tea">
+            <div class="carousel-caption">Try our signature Green Tea!</div>
+        </div>
+        <div class="carousel-slide">
+            <img src="image/Chocolate.jpg" alt="Chocolate">
+            <div class="carousel-caption">Hot Chocolate for everyone</div>
+        </div>
+        <div class="carousel-slide">
+            <img src="image/Avocado.jpg" alt="Avocado">
+            <div class="carousel-caption">Fresh Avocado Smoothies!</div>
+        </div>
+
+        <!-- Carousel Controls -->
+        <span class="carousel-prev">&#10094;</span>
+        <span class="carousel-next">&#10095;</span>
+
+        <!-- Carousel Dots -->
+        <div class="carousel-dots">
+            <span class="dot active"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+        </div>
+    </div>
+    <main>
+        <section class="welcome-section">
+            <h1>Welcome to KimhutCafé</h1>
+            <p class="intro">
+                Your friendly local spot for <b>coffee, tea, and smoothies</b>.<br>
+                Enjoy our cozy atmosphere and delicious drinks!
+            </p>
+            <a href="Menu.html" class="btn-main">View Menu</a>
+        </section>
+        <section class="about-section">
+            <h2>About KimhutCafé</h2>
+            <p>
+                At KimhutCafé, we serve fresh drinks and smiles every day.<br>
+                From classic coffees to creative smoothies, there’s something for everyone.<br>
+                Visit us in person or order online!
+            </p>
+        </section>
+        <section class="contact-social-section">
+            <div class="social-icons">
+                <a href="https://web.facebook.com/people/%E1%9E%82%E1%9E%B9%E1%9E%98%E1%9E%A0%E1%9F%8A%E1%9E%BB%E1%9E%8F-%E1%9E%80%E1%9E%B6%E1%9E%A0%E1%9F%92%E1%9E%9C%E1%9F%81Kimhut-Coffee/100068016318775/"
+                    target="_blank" aria-label="Facebook">
+                    <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg"
+                        alt="Facebook" />
+                </a>
+                <a href="https://t.me" target="_blank" aria-label="Telegram">
+                    <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/telegram.svg"
+                        alt="Telegram" />
+                </a>
+                <a href="https://maps.app.goo.gl/BHhLBougnc5rbpeT9" target="_blank" aria-label="Google Map">
+                    <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/googlemaps.svg"
+                        alt="Google Map" />
+                </a>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 KimhutCafé. All rights reserved.</p>
+    </footer>
+</body>
+
+<script>
+    showPage('home', document.querySelector('.nav ul li a')); 
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.carousel-slide');
+    const dots = document.querySelectorAll('.dot');
+
+    function showSlide(index) {
+        slides.forEach((slide, i) => {
+            slide.classList.toggle('active', i === index);
+            dots[i].classList.toggle('active', i === index);
+        });
+        currentSlide = index;
+    }
+
+    function nextSlide() {
+        showSlide((currentSlide + 1) % slides.length);
+    }
+    function prevSlide() {
+        showSlide((currentSlide - 1 + slides.length) % slides.length);
+    }
+
+    // Auto slide
+    let autoSlide = setInterval(nextSlide, 3500);
+
+    document.querySelector('.carousel-next').onclick = () => {
+        nextSlide();
+        resetAuto();
+    };
+    document.querySelector('.carousel-prev').onclick = () => {
+        prevSlide();
+        resetAuto();
+    };
+    dots.forEach((dot, i) => {
+        dot.onclick = () => {
+            showSlide(i);
+            resetAuto();
+        }
+    });
+
+    function resetAuto() {
+        clearInterval(autoSlide);
+        autoSlide = setInterval(nextSlide, 3500);
+    }
+
+    // Start on first slide
+    showSlide(0);
+</script>
+
+</html>
